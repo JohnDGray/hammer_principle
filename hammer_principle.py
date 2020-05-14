@@ -249,13 +249,15 @@ def declare_global_variables():
     global open_source
     open_source = get_category('open source', quiet=True)
     global corporate_languages
-    corporate_languages = ['csharp', 'fsharp', 'objective c', 'swift']
+    corporate_languages = ['csharp', 'fsharp', 'visual basic', 'objective c', 'swift']
     global practical_categories
     practical_categories = pc()
     global minimal
     minimal = get_category('minimal', quiet=True)
     global large
     large = get_category('this language is large', quiet=True)
+    global small
+    small = [x for x in minimal[:18] if x in large[-18:]] 
     global smart_enough
     smart_enough = get_category('smart', quiet=True)
     global glance
@@ -264,6 +266,14 @@ def declare_global_variables():
     accidental_compexity = get_category('complexity', quiet=True)
     global semantics
     semantics = get_category('semantics', quiet=True)
+    global tacked_on
+    tacked_on = get_category('tacked on', quiet=True)
+    global shoot_yourself
+    shoot_yourself = get_category('shoot yourself', quiet=True)
+    global readable
+    readable = get_category('readable')
+    global looks_like
+    looks_like = get_category('looks like')
     global improved
     improved = get_category('improve', quiet=True)
     global influence
@@ -274,14 +284,14 @@ def declare_global_variables():
     lisps = set(['scheme', 'elisp', 'emacs lisp', 'clojure', 'common lisp'])
     global ml_langs
     ml_langs = set(['standard ml', 'ocaml', 'fsharp', 'haskell', 'scala', 'coq', 'agda'])
+    # global hard_cats
+    # hard_cats = ['minimal', 'language is large', 'smart enough', 'glance', 'accidental complexity', 'semantics', 'tacked on', 'shoot yourself', 'readable', 'looks like']
+    # hard_cats = {s: cat_includes(s)[0] for s in hard_cats}
+    # global hard_lang_lists
+    # hard_lang_lists = {cat: get_category(cat) for s, cat in hard_cats.items()}
     global hard_langs
-    global easy_langs
-    hard_langs = set(large[:15]) | set(minimal[-15:]) | set(smart_enough[:15]) | set(glance[-15:])
-    hard_langs -= (set(large[-15:]) | set(minimal[:15]) | set(smart_enough[-15:]))
-    easy_langs = set(large[-15:]) | set(minimal[:15]) | set(smart_enough[-15:])
-    easy_langs -= (set(large[:15]) | set(minimal[-15:]) | set(smart_enough[:15]) | set(glance[-15:]))
+    hard_langs = set(['c++', 'common lisp', 'scala', 'haskell', 'ocaml', 'fsharp'])
 
-
-
+ 
 
 declare_global_variables()
